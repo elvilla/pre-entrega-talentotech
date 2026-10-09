@@ -70,22 +70,32 @@ while True:
                 if otra_busqueda != "Y":
                     break
 
-
         case 4:
             print("Menu para eliminar productos por numero de orden")
-            for i in range(len(lista_bicicletas)):
-                print(lista_bicicletas)
             while True:
-                print("Que producto desea eliminar? ")
-                producto_a_eliminar = input(">> ")
-                producto_a_eliminar = int(producto_a_eliminar)
-                for x in range(len(lista_bicicletas)):
-                    if producto_a_eliminar == x+1:
-                        lista_bicicletas.pop(producto_a_eliminar-1)
-                    else:
-                        print("El valor seleccionado es incorrecto")
-                        break
+                # Mostrar la lista actual (se actualiza en cada vuelta)
+                for i in range(len(lista_bicicletas)):
+                    b = lista_bicicletas[i]
+                    print(f"{i+1}. Uso: {b[0]} | Marca: {b[1]} | Modelo: {b[2]} | Precio: {b[3]}")
 
+                print("Que producto desea eliminar? ")
+                producto_a_eliminar = int(input(">> "))
+
+                if producto_a_eliminar >= 1 and producto_a_eliminar <= len(lista_bicicletas):
+                    lista_bicicletas.pop(producto_a_eliminar - 1)
+                    print("Producto eliminado correctamente.")
+                else:
+                    print("El valor seleccionado es incorrecto")
+
+                eliminar_otro = input("Desea eliminar otro producto? (Y/N): ")
+                if eliminar_otro != "Y":
+                    break
+
+            # Lista final al terminar
+            print("\nLista final de bicicletas:")
+            for i in range(len(lista_bicicletas)):
+                b = lista_bicicletas[i]
+                print(f"{i+1}. Uso: {b[0]} | Marca: {b[1]} | Modelo: {b[2]} | Precio: {b[3]}")
 
         case 5:
             print("Abandonando la aplicacion.")

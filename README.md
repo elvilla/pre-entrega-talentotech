@@ -113,7 +113,7 @@ después de cerrar la aplicación.
 ## 6. Estructura del proyecto
 
 ```text
-epic-bikes/
+pre-entrega-talentotech/
 ├── main.py        # Código principal
 ├── CONSIGNAS.md   # Requisitos del ejercicio
 ├── README.md      # Documentación del proyecto

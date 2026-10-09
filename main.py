@@ -3,12 +3,12 @@ print("\nBienvenido a Epic Bikes\n")
 
 ##Lista Bicicletas por Uso, Marca, Modelo, Valor.
 lista_bicicletas = [
-    ["Gravel", "Specialized", "Diverge 4 Pro", 17100000],
-    ["Gravel", "Specialized", "Diverge 4 Expert", 10600001],
-    ["Gravel", "Specialized", "Crux 5 Comp", 7814250],
-    ["Gravel", "Specialized", "Diverge 4 Comp Carbon", 7000000],
-    ["Gravel", "Specialized", "Crux Comp", 5400000],
-    ["Gravel", "Specialized", "Diverge 4 Comp Alloy", 4644001],
+    ["Specialized", "Diverge 4 Pro", 17100000],
+    ["Specialized", "Diverge 4 Expert", 10600001],
+    ["Specialized", "Crux 5 Comp", 7814250],
+    ["Specialized", "Diverge 4 Comp Carbon", 7000000],
+    ["Specialized", "Crux Comp", 5400000],
+    ["Specialized", "Diverge 4 Comp Alloy", 4644001],
 ]
 
 ##Menu Usuario
@@ -33,11 +33,10 @@ while True:
         case 1:
             print("Para agregar un producto es necesario completar la siguiente informacion")
             while True:
-                uso = input("Ingrese el tipo/uso de bicicleta: ")
                 marca = input("Ingrese la marca: ")
                 modelo = input("Ingrese el modelo: ")
                 valor = input("ingrese el valor: ")
-                bicicleta = [uso, marca, modelo, valor]
+                bicicleta = [marca, modelo, valor]
                 lista_bicicletas.append(bicicleta)
                 #Agregar otro producto
                 agregar_otro = input("Desea agregar otro producto? (Y/N): ")
@@ -48,7 +47,7 @@ while True:
         case 2:
             print("Listar todos los productos")
             for bicicleta in lista_bicicletas:
-                print(f"Uso: {bicicleta[0]} | Marca: {bicicleta[1]} | Modelo: {bicicleta[2]} | Precio: {bicicleta[3]}")
+                print(f"Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
         
         case 3:
             print("Buscador de productos por marca")
@@ -59,11 +58,11 @@ while True:
                 lista_marca_elegida = []
 
                 for i in lista_bicicletas:
-                    if eleccion_marca == i[1]:
+                    if eleccion_marca == i[0]:
                         lista_marca_elegida.append(i)
                 if lista_marca_elegida:
-                    for b in lista_marca_elegida:
-                        print(f"Marca: {b[1]} | Modelo: {b[2]} | Precio: {b[3]}")
+                   for bicicleta in lista_marca_elegida:
+                        print(f"Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
                 else:
                     print(f"{eleccion_marca} no se encuentra en la lista.")
                 otra_busqueda = input("Desea hacer otra busqueda? (Y/N): ")
@@ -75,8 +74,8 @@ while True:
             while True:
                 # Mostrar la lista actual (se actualiza en cada vuelta)
                 for i in range(len(lista_bicicletas)):
-                    b = lista_bicicletas[i]
-                    print(f"{i+1}. Uso: {b[0]} | Marca: {b[1]} | Modelo: {b[2]} | Precio: {b[3]}")
+                    bicicleta = lista_bicicletas[i]
+                    print(f"{i+1}. Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
 
                 print("Que producto desea eliminar? ")
                 producto_a_eliminar = int(input(">> "))
@@ -94,8 +93,8 @@ while True:
             # Lista final al terminar
             print("\nLista final de bicicletas:")
             for i in range(len(lista_bicicletas)):
-                b = lista_bicicletas[i]
-                print(f"{i+1}. Uso: {b[0]} | Marca: {b[1]} | Modelo: {b[2]} | Precio: {b[3]}")
+                bicicleta = lista_bicicletas[i]
+                print(f"{i+1}.Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
 
         case 5:
             print("Abandonando la aplicacion.")

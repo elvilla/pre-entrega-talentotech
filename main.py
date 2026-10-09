@@ -1,5 +1,5 @@
 #Introduccion Aplicacion
-print("\nBienvenido a Epic Bikes\n")
+print("\nBienvenido a EPIC Bikes\n")
 
 ##Lista Bicicletas por Uso, Marca, Modelo, Valor.
 lista_bicicletas = [

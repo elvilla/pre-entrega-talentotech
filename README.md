@@ -115,7 +115,6 @@ después de cerrar la aplicación.
 ```text
 epic-bikes/
 ├── main.py        # Código principal
-├── consignas.md   # Requisitos del ejercicio
+├── CONSIGNAS.md   # Requisitos del ejercicio
 ├── README.md      # Documentación del proyecto
-└── .gitignore     # Archivos excluidos del repositorio
 ```

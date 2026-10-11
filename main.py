@@ -89,12 +89,10 @@ while True:
 
                 print("Que producto desea eliminar? ")
                 producto_a_eliminar = int(input(">> "))
-
                 eliminar_confirmacion = input(f"Confirma que desea eliminar el producto: {producto_a_eliminar}? (Y/N): >>)")
                 eliminar_confirmacion = eliminar_confirmacion.capitalize()
                 if eliminar_confirmacion != "Y":
                     break
-
                 if producto_a_eliminar >= 1 and producto_a_eliminar <= len(lista_bicicletas):
                     lista_bicicletas.pop(producto_a_eliminar - 1)
                     print("Producto eliminado correctamente.")

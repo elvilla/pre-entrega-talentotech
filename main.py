@@ -37,9 +37,16 @@ while True:
                 modelo = input("Ingrese el modelo: ")
                 valor = input("ingrese el valor: ")
                 bicicleta = [marca, modelo, valor]
-                lista_bicicletas.append(bicicleta)
+                agregar_confirmacion = input(f"Confirma que desea agregar el producto: Marca: {marca} | Modelo: {modelo} | Precio: {valor}? (Y/N: )")
+                agregar_confirmacion = agregar_confirmacion.capitalize()
+                if agregar_confirmacion != "Y":
+                    break
+                else:
+                    lista_bicicletas.append(bicicleta)
+                
                 #Agregar otro producto
                 agregar_otro = input("Desea agregar otro producto? (Y/N): ")
+                agregar_otro = agregar_otro.capitalize()
                 if agregar_otro != "Y":
                     break
 
@@ -49,6 +56,7 @@ while True:
             for bicicleta in lista_bicicletas:
                 print(f"Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
         
+
         case 3:
             print("Buscador de productos por marca")
             while True:
@@ -60,12 +68,14 @@ while True:
                 for i in lista_bicicletas:
                     if eleccion_marca == i[0]:
                         lista_marca_elegida.append(i)
+                
                 if lista_marca_elegida:
                    for bicicleta in lista_marca_elegida:
                         print(f"Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
                 else:
                     print(f"{eleccion_marca} no se encuentra en la lista.")
                 otra_busqueda = input("Desea hacer otra busqueda? (Y/N): ")
+                otra_busqueda = otra_busqueda.capitalize()
                 if otra_busqueda != "Y":
                     break
 
@@ -79,6 +89,11 @@ while True:
 
                 print("Que producto desea eliminar? ")
                 producto_a_eliminar = int(input(">> "))
+
+                eliminar_confirmacion = input(f"Confirma que desea eliminar el producto: {producto_a_eliminar}? (Y/N): >>)")
+                eliminar_confirmacion = eliminar_confirmacion.capitalize()
+                if eliminar_confirmacion != "Y":
+                    break
 
                 if producto_a_eliminar >= 1 and producto_a_eliminar <= len(lista_bicicletas):
                     lista_bicicletas.pop(producto_a_eliminar - 1)

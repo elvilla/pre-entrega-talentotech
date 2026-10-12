@@ -1,10 +1,10 @@
-#Introduccion Aplicacion
+#Imports
 import enum
 
-
+#Introduccion Aplicacion
 print("\nBienvenido a EPIC Bikes\n")
 
-##Lista Bicicletas por Uso, Marca, Modelo, Valor.
+##Lista de Bicicletas (por Marca, Modelo, Valor)
 lista_bicicletas = [
     ["Specialized", "Diverge 4 Pro", 17100000],
     ["Specialized", "Diverge 4 Expert", 10600001],
@@ -14,13 +14,7 @@ lista_bicicletas = [
     ["Specialized", "Diverge 4 Comp Alloy", 4644001],
 ]
 
-##Menu Usuario
-##| 1 | Agregar un producto |
-##| 2 | Mostrar todos los productos |
-##| 3 | Buscar productos por nombre |
-##| 4 | Eliminar un producto |
-##| 5 | Salir del programa |
-
+#Menu Usuario
 print("Por favor elija una de las siguientes opciones:")
 while True:
     print("""
@@ -33,6 +27,7 @@ while True:
     seleccion_opcion_usuario = int(input(">> "))
 
     match seleccion_opcion_usuario:
+        #Agregar Producto
         case 1:
             print("Para agregar un producto es necesario completar la siguiente informacion")
             while True:
@@ -57,17 +52,12 @@ while True:
                 if agregar_otro != "Y":
                     break
 
-
+        #Lista Productos
         case 2:
-            #print("Listar todos los productos")
-            #for bicicleta in lista_bicicletas:
-            #    print(f"Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
-            
-            #Correccion del for loop usando enumerate para mejorar su comprension.
             for i, (marca, modelo, valor) in enumerate(lista_bicicletas, start=1):
                 print(f"{i}) Marca: {marca} | Modelo: {modelo} | Precio: ${valor}")
         
-
+        #Buscador Productos
         case 3:
             print("Buscador de productos por marca")
             while True:
@@ -81,9 +71,6 @@ while True:
                         lista_marca_elegida.append(i)
                 
                 if lista_marca_elegida:
-                   #for bicicleta in lista_marca_elegida:
-                   #     print(f"Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
-                   #Uso de enumerate para mejorar legibilidad.
                     for i, (marca, modelo, valor) in enumerate(lista_marca_elegida, start=1):
                         print(f"> Marca: {marca} | Modelo: {modelo} | Precio: ${valor}")
                 
@@ -92,18 +79,14 @@ while True:
                 otra_busqueda = input("Desea hacer otra busqueda? (Y/N): ").upper()
                 if otra_busqueda != "Y":
                     break
-
+        
+        #Eliminar Productos
         case 4:
             print("Menu para eliminar productos por numero de orden")
             while True:
                 # Mostrar la lista actual (se actualiza en cada vuelta)
-                #Enumerate en vez de for loop con range para mejorar legibilidad
                 for i, (marca, modelo, valor) in enumerate(lista_bicicletas, start=1):
                     print(f"{i}) Marca: {marca} | Modelo: {modelo} | Precio: ${valor}")
-
-               #for i in range(len(lista_bicicletas)):
-                #    bicicleta = lista_bicicletas[i]
-                #    print(f"{i+1}. Marca: {bicicleta[0]} | Modelo: {bicicleta[1]} | Precio: {bicicleta[2]}")
 
                 print("Que producto desea eliminar? ")
                 producto_a_eliminar = int(input(">> "))
@@ -129,10 +112,10 @@ while True:
             print("\nLista final de bicicletas:")
             for i, (marca, modelo, valor) in enumerate(lista_bicicletas, start=1):
                 print(f"{i}) Marca: {marca} | Modelo: {modelo} | Precio: {valor}")
-
+        
+        #Cerrar Aplicacion
         case 5:
             print("Abandonando la aplicacion.")
             break
         case _:
             print("Ingreso una opcion incorrecta.")
-
